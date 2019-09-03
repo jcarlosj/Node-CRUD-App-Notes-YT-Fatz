@@ -27,6 +27,11 @@ app .use( session({                                             // Para configur
     saveUninitialized: true                                     // Obliga a guardar una sesión que no está inicializada
 }) );
 
+// Routes
+app .use( require( './routes/index' ) );
+app .use( require( './routes/users' ) );
+app .use( require( './routes/notes' ) );
+
 // Server
 app .listen( app .get( 'port' ), () => {
     console .log( `Servidor en el puerto: ${ app .get( 'port' ) }` );
