@@ -4,7 +4,7 @@
   "description": "App Notas usando NodeJS y MongoDB",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/app.js"
   },
   "author": "Juan Carlos Jiménez Gutiérrez",
   "license": "MIT",
