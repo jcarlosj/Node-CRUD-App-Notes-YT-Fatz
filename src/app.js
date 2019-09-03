@@ -32,6 +32,9 @@ app .use( require( './routes/index' ) );
 app .use( require( './routes/users' ) );
 app .use( require( './routes/notes' ) );
 
+// Static Files
+app .use( express .static( path .join( __dirname, 'public' ) ) );   // Define directorio de archivos estáticos para Express
+
 // Server
 app .listen( app .get( 'port' ), () => {
     console .log( `Servidor en el puerto: ${ app .get( 'port' ) }` );
