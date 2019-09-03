@@ -3,9 +3,10 @@ const   express = require( 'express' ),
         path = require( 'path' ),
         exphbs = require( 'express-handlebars' ),
         methodOverride = require( 'method-override' ),
-        session = require( 'express-session' ),
+        session = require( 'express-session' );
 // Inicializations
-        app = express();
+const   app = express();
+require( './database' );
 
 // Settings
 app .set( 'port', process .env .PORT || 3000 );                 // Considera Puerto para servicios en la nube (Si existe que lo use, si no que use por defecto el 3000)
