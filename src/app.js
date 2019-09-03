@@ -2,6 +2,8 @@
 const   express = require( 'express' ),
         path = require( 'path' ),
         exphbs = require( 'express-handlebars' ),
+        methodOverride = require( 'method-override' ),
+        session = require( 'express-session' ),
 // Inicializations
         app = express();
 
@@ -15,6 +17,15 @@ app .engine( '.hbs', exphbs({                                   // Define la con
     extname: '.hbs'                                             // Extensión va a soportar nuestro motor de plantillas
 }));
 app .set( 'view engine', '.hbs' );                              // Configura el motor de plantillas (HandleBars)
+
+// Middlewares
+app .use( express .urlencoded({ extended: false }) );           // La sintaxis "extendida" permite que los objetos ricos y las matrices se codifiquen en el formato codificado con URL, lo que permite una experiencia similar a JSON con codificación URL (Extended: false) indica que solo se desean los datos.
+app .use( methodOverride( '_method' ) );                        // Para que los formularios puedan usar otros tipos de metodos
+app .use( session({                                             // Para configurar la variable de sessión, para hacer autenticaciones en Express
+    secret: 'mysecretapp',                                      // Cadena secreta utilizada para firmar la cookie de ID de sesión. 
+    resave: true,                                               // Obliga a que la sesión se guarde nuevamente
+    saveUninitialized: true                                     // Obliga a guardar una sesión que no está inicializada
+}) );
 
 // Server
 app .listen( app .get( 'port' ), () => {
