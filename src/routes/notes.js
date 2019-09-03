@@ -4,7 +4,7 @@ const   express = require( 'express' ),
 
 // Creamos las rutas 
 router .get( '/notes', ( request, response ) => {
-    response .send( 'Notas desde la base de datos' );
+    response .render( 'notes/notes' );
 });        
 
 module .exports = router;

@@ -3,10 +3,10 @@ const router = require( 'express' ) .Router();
 
 // Creamos las rutas 
 router .get( '/', ( request, response ) => {
-    response .send( 'Página Principal (index)' );
+    response .render( 'index' );
 });
 router .get( '/about', ( request, response ) => {
-    response .send( 'Acerca de (about)' );
+    response .render( 'about' );
 });
 
 module .exports = router;

@@ -4,10 +4,10 @@ const   express = require( 'express' ),
 
 // Creamos las rutas 
 router .get( '/users/sign-in', ( request, response ) => {
-    response .send( 'Ingreso a la aplicación' );
+    response .render( 'users/sign-in' );
 });
 router .get( '/users/sign-up', ( request, response ) => {
-    response .send( 'Autenticación de usuario' );
+    response .render( 'users/sign-up' )
 });
 
 module .exports = router;
